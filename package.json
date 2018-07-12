@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "dbfunctions.js",
+  "start": "node dbrouter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

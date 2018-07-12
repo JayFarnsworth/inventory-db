@@ -8,7 +8,7 @@ const app = module.exports = express()
 const server = http.createServer(app)
 const port = parseInt(process.env.PORT || 4000)
 const devMode = process.env.NODE_ENV !== 'production'
-const mongo = require('./mongo.js')
+const mongo = require('./dbfunctions.js')
 
 
 
