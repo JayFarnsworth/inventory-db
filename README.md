@@ -1,58 +1,58 @@
 # inventory-db
 
-DB URL 
-https://inventorydb.herokuapp.com
+DB URL </br>
+https://inventorydb.herokuapp.com</br>
+</br>
+DB Routes:</br>
 
-DB Routes:
+USERS</br>
+GET</br>
+/user?name=jay</br>
+finds single user based on name</br></br>
 
-USERS
-GET
-/user?name=jay
-finds single user based on name
+GET</br>
+/allusers</br>
+returns all users</br>
+</br>
+DELETE</br>
+/removeuser?userId=id</br>
+removes user matching mongo "_id" field</br>
+</br>
+POST</br>
+/user</br>
+adds user object to DB (object must be sent in the req.body)</br>
 
-GET
-/allusers
-returns all users
+</br></br>
+FACILITIES</br>
+GET</br>
+/facilities?id=id</br>
+finds single facility based on ID number (not mongo _id)</br>
+</br>
+GET</br>
+/allfacilities</br>
+returns all facilities in DB</br>
+</br>
+POST</br>
+/facilities</br>
+adds facility object to DB (object must be sent in the req.body)</br>
+</br></br>
 
-DELETE
-/removeuser?userId=id
-removes user matching mongo "_id" field
-
-POST
-/user
-adds user object to DB (object must be sent in the req.body)
-
-
-FACILITIES
-GET
-/facilities?id=id
-finds single facility based on ID number (not mongo _id)
-
-GET
-/allfacilities
-returns all facilities in DB
-
-POST
-/facilities
-adds facility object to DB (object must be sent in the req.body)
-
-
-INVENTORY
-GET
-/inventory
-returns all inventory items in DB for all facilities
-
-GET
-/facilityinventory?id=id
-returns inventory items for a given facility ID (not mongo _id)
-
-POST
-/inventory
-adds item to inventory (object must be sent in the req.body
-
-DELETE
-/inventory?id=id
-deletes inventory item based on mongo "_id"
+INVENTORY</br>
+GET</br>
+/inventory</br>
+returns all inventory items in DB for all facilities</br>
+</br>
+GET</br>
+/facilityinventory?id=id</br>
+returns inventory items for a given facility ID (not mongo _id)</br>
+</br>
+POST</br>
+/inventory</br>
+adds item to inventory (object must be sent in the req.body</br>
+</br>
+DELETE</br>
+/inventory?id=id</br>
+deletes inventory item based on mongo "_id"</br>
 
 
 
