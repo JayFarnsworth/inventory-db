@@ -37,6 +37,12 @@ function findAllUsers() {
   return users.find()
 }
 
+function deleteUser(id){
+  return users.remove({
+    "_id": id
+  })
+}
+
 // facilities functions
 function addFacility(facility){
   return facilities.insert({
@@ -96,6 +102,7 @@ module.exports = {
   createUser,
   findUser,
   findAllUsers,
+  removeUser,
   addFacility,
   getFacility,
   getAllFacilities,

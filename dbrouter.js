@@ -33,6 +33,13 @@ app.get('/allusers', (req, res) => {
     })
 })
 
+app.delete('/removeuser', (req, res) => {
+  var userId = req.query.id;
+  mongo.removeUser(userId)
+    .then(user => {
+      res.send('removed user' + user.user_name)
+    })
+})
 
 app.post('/user', (req, res) => {
   console.log('receiving data');
