@@ -80,6 +80,12 @@ app.post('/inventory', (req, res) => {
     })
 })
 
+app.delete('/inventory', (req, res) => {
+  var itemId = req.query.id;
+  mongo.removeItem(itemId)
+    .then(res.send('removed'))
+})
+
 app.get('/inventory', (req, res) => {
   mongo.getAllItems()
     .then(inventory => {
