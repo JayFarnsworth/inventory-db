@@ -10,12 +10,20 @@ db.then(() => {
 })
 
 const users = db.get('users');
+const facilities = db.get('facilities');
+const inventory = db.get('inventory');
 
+// user functions
 function createUser(user) {
   return users.insert({
-    "name": user.name,
+    "ID": user.ID,
+    "user_name": user.user_name,
+    "email": user.email,
+    "password": user.password,
     "school": user.school,
-    "email": user.email
+    "active": user.active,
+    "logged_in": user.logged_in,
+    "facilities": user.facilities  
   })
 }
 
@@ -25,8 +33,69 @@ function findUser(name) {
   })
 }
 
+function findAllUsers() {
+  return users.find()
+}
+
+// facilities functions
+function addFacility(facility){
+  return facilities.insert({
+    "ID": facility.ID,
+    "facility_name": facility.facility_name,
+    "street_address": facility.street_address,
+    "city": facility.city,
+    "state": facility.state,
+    "zip_code": facility.zip_code
+  })
+}
+
+function getFacility(facilityId){
+  return facilities.find({
+    ID: facilityId
+  })
+}
+
+function getAllFacilities(){
+  return facilities.find()
+}
+
+// inventory functions
+function addItem(item){
+  return inventory.insert({
+    "ID": item.ID,
+    "item_name": item.item_name,
+    "image_upload": item.image_upload,
+    "image_link": item.image_link,
+    "quantity": item.quantity,
+    "units": item.units,
+    "facility": item.facility_name,
+    "facility_ID": item.facility_ID,
+    "storage_location": item.storage_location,
+    "expiration": item.expiration,
+    "email_reminder": item.email_reminder
+  })
+}
+
+function getAllItems(){
+  return inventory.find()
+}
+// function addItemToFacility(item, facilityId) {
+//   return inventory.findOneAndUpdate({ID: facilityId}, {
+//     $set: {
+//       item: 
+//     }
+//   })
+// }
+
+
 module.exports = {
   _db: db,
   createUser,
-  findUser
+  findUser,
+  findAllUsers,
+  addFacility,
+  getFacility,
+  getAllFacilities,
+  addItem,
+  getAllItems
 } 

@@ -18,30 +18,74 @@ app.use(morgan(devMode ? 'dev' : 'combined'))
 app.use(cors({ origin: true }))
 
 
-app.get('/users', (req, res) => {
-  console.log('mongo working')
+app.get('/user', (req, res) => {
   var name = req.query.name;
   mongo.findUser(name)
     .then(user => {
-      console.log('we got here')
       res.send(user)
     })
 })
 
-app.post('/create', (req, res) => {
-  console.log(req.body)
+app.get('/allusers', (req, res) => {
+  mongo.findAllUsers()
+    .then(users => {
+      res.send(users)
+    })
 })
 
-app.post('/users/post', function (req, res) {
+
+app.post('/user', (req, res) => {
   console.log('receiving data');
   console.log('body is ', req.body);
   mongo.createUser(req.body)
     .then(user => {
-      console.log('created')
-      res.send(req.body)
+      console.log('created user')
+      res.send(user)
     })
 })
 
+app.post('/facilities', (req, res) => {
+  console.log('receiving data');
+  console.log('body is ', req.body);
+  mongo.addFacility(req.body)
+    .then(facility => {
+      console.log('created facility')
+      res.send(facility)
+    })
+})
+
+app.get('/facilities', (req, res) => {
+  var id = req.query.id;
+  mongo.getFacility(id)
+    .then(facility => {
+      console.log(facility)
+      res.send(facility)
+    })
+})
+
+app.get('/allfacilities', (req, res) => {
+  mongo.getAllFacilities()
+    .then(facilities => {
+      res.send(facilities)
+    })
+})
+
+app.post('/inventory', (req, res) => {
+  console.log('receiving data');
+  console.log('body is ', req.body);
+  mongo.addItem(req.body)
+    .then(item => {
+      console.log('created item')
+      res.send(item)
+    })
+})
+
+app.get('/inventory', (req, res) => {
+  mongo.getAllItems()
+    .then(inventory => {
+      res.send(inventory)
+    })
+})
 
 app.use(notFound)
 app.use(errorHandler)
