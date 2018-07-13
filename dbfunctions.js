@@ -75,6 +75,9 @@ function addItem(item){
     "email_reminder": item.email_reminder
   })
 }
+function removeItem(item_id){
+  return inventory.remove({ "_id": item_id })
+}
 
 function getAllItems(){
   return inventory.find()
@@ -97,5 +100,6 @@ module.exports = {
   getFacility,
   getAllFacilities,
   addItem,
+  removeItem,
   getAllItems
 } 
