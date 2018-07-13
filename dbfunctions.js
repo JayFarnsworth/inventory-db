@@ -1,7 +1,7 @@
 const monk = require('monk')
 
 // Connection URL
-const url = 'lmongodb://@ds235461.mlab.com:35461/heroku_s2sn9c54';
+const url = 'mongodb://test:test11@ds235461.mlab.com:35461/heroku_s2sn9c54';
 
 const db = monk(url);
 
