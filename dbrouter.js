@@ -35,9 +35,9 @@ app.get('/allusers', (req, res) => {
 
 app.delete('/removeuser', (req, res) => {
   var userId = req.query.id;
-  mongo.removeUser(userId)
+  mongo.deleteUser(userId)
     .then(user => {
-      res.send('removed user' + user.user_name)
+      res.send('removed user' + user.user_namegit )
     })
 })
 

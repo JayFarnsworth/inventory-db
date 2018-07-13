@@ -102,7 +102,7 @@ module.exports = {
   createUser,
   findUser,
   findAllUsers,
-  removeUser,
+  deleteUser,
   addFacility,
   getFacility,
   getAllFacilities,
