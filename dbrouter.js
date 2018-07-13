@@ -100,6 +100,14 @@ app.get('/inventory', (req, res) => {
     })
 })
 
+app.get('/facilityinventory', (req, res) => {
+  var facilityId = req.query.id;
+  mongo.getItemByFacility(facilityId)
+    .then(inventory => {
+      res.send(inventory)
+    })
+})
+
 app.use(notFound)
 app.use(errorHandler)
 

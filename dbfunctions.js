@@ -85,6 +85,12 @@ function removeItem(item_id){
   return inventory.remove({ "_id": item_id })
 }
 
+function getItemByFacility(facilityId) {
+  return inventory.find({
+    "facility_ID": facilityId
+  })
+}
+
 function getAllItems(){
   return inventory.find()
 }
@@ -107,6 +113,7 @@ module.exports = {
   getFacility,
   getAllFacilities,
   addItem,
+  getItemByFacility,
   removeItem,
   getAllItems
 } 
