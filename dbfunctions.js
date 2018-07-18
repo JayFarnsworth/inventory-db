@@ -37,6 +37,12 @@ function findAllUsers() {
   return users.find()
 }
 
+function addSchoolToUser(userId, schoolId) {
+  return users.findOneAndUpdate({ ID: userId }, {
+    $push: {facilities: schoolId}
+  })
+}
+
 function deleteUser(id){
   return users.remove({
     "_id": id
