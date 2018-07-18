@@ -114,6 +114,7 @@ module.exports = {
   createUser,
   findUser,
   findAllUsers,
+  addSchoolToUser,
   deleteUser,
   addFacility,
   getFacility,

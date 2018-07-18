@@ -33,6 +33,15 @@ app.get('/allusers', (req, res) => {
     })
 })
 
+app.put('/user', (req, res) => {
+  var userId = req.query.userId;
+  var schoolId = req.query.schoolId;
+  mongo.addSchoolToUser(userId, schoolId)
+    .then(user => {
+      res.send(user)
+    })
+})
+
 app.delete('/removeuser', (req, res) => {
   var userId = req.query.id;
   mongo.deleteUser(userId)
