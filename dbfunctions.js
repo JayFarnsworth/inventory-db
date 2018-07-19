@@ -27,9 +27,9 @@ function createUser(user) {
   })
 }
 
-function findUser(name) {
+function findUser(id) {
   return users.find({
-    "name": name
+    "_id": id
   })
 }
 

@@ -18,14 +18,6 @@ app.use(morgan(devMode ? 'dev' : 'combined'))
 app.use(cors({ origin: true }))
 
 
-app.get('/user', (req, res) => {
-  var name = req.query.name;
-  mongo.findUser(name)
-    .then(user => {
-      res.send(user)
-    })
-})
-
 app.get('/allusers', (req, res) => {
   mongo.findAllUsers()
     .then(users => {
@@ -33,16 +25,25 @@ app.get('/allusers', (req, res) => {
     })
 })
 
+app.get('/user', (req, res) => {
+  var id = req.query.id;
+  mongo.findUser(id)
+    .then(user => {
+      res.send(user)
+    })
+})
+
 app.put('/user', (req, res) => {
   var userId = req.query.userId;
   var schoolId = req.query.schoolId;
+  console.log(req.body)
   mongo.addSchoolToUser(userId, schoolId)
     .then(user => {
       res.send(user)
     })
 })
 
-app.delete('/removeuser', (req, res) => {
+app.delete('/user', (req, res) => {
   var userId = req.query.id;
   mongo.deleteUser(userId)
     .then(user => {
