@@ -16,13 +16,8 @@ const inventory = db.get('inventory');
 // user functions
 function createUser(user) {
   return users.insert({
-    "ID": user.ID,
     "user_name": user.user_name,
     "email": user.email,
-    "password": user.password,
-    "school": user.school,
-    "active": user.active,
-    "logged_in": user.logged_in,
     "facilities": user.facilities  
   })
 }
@@ -52,7 +47,6 @@ function deleteUser(id){
 // facilities functions
 function addFacility(facility){
   return facilities.insert({
-    "ID": facility.ID,
     "facility_name": facility.facility_name,
     "street_address": facility.street_address,
     "city": facility.city,
@@ -74,7 +68,6 @@ function getAllFacilities(){
 // inventory functions
 function addItem(item){
   return inventory.insert({
-    "ID": item.ID,
     "item_name": item.item_name,
     "image_upload": item.image_upload,
     "image_link": item.image_link,
