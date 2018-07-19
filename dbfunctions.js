@@ -23,9 +23,13 @@ function createUser(user) {
 }
 
 function findUser(id) {
-  return users.find({
-    "_id": id
-  })
+  if (id) {
+    return users.find({
+      "_id": id
+    })
+  } else {
+    return users.find()
+  }
 }
 
 function findAllUsers() {
@@ -33,7 +37,7 @@ function findAllUsers() {
 }
 
 function addSchoolToUser(userId, schoolId) {
-  return users.findOneAndUpdate({ ID: userId }, {
+  return users.findOneAndUpdate({ _id: userId }, {
     $push: {facilities: schoolId}
   })
 }
